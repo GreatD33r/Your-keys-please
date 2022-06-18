@@ -9708,7 +9708,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 200
+  m_Mass: 300
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
@@ -9736,7 +9736,7 @@ MonoBehaviour:
   _secondCollider: {fileID: -208873252439551879}
   _firstParticles: {fileID: 402887603138295105}
   _secondParticles: {fileID: 4044525518528698359}
-  _driver: {fileID: 3561155782565214515, guid: 9ffad8b3117902b48a1178d3c1dbfee4, type: 3}
+  _driver: {fileID: 5211828640518932506, guid: 6f97b0e63031789449b3cea8d5cca904, type: 3}
   _readyToTurn: 0
   onPark: 0
 --- !u!61 &-208873252439551879

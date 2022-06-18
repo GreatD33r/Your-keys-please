@@ -14,6 +14,7 @@ public class CarsMove : MonoBehaviour
     [SerializeField] GameObject _driver;
     public bool _readyToTurn;
     bool _plSit = false;
+    private Vector2 _driverSpawnPoint;
 
     public bool onPark = false;
 
@@ -27,6 +28,7 @@ public class CarsMove : MonoBehaviour
 
     void FixedUpdate()
     {
+        _driverSpawnPoint = new Vector2(transform.position.x + 2, transform.position.y);
         _plSit = CameraMng._plSit;
         _readyToTurn = RoadBusy._isBusy;
         rb.velocity = new Vector2(horizontalSpeed, verticalSpeed);
@@ -56,7 +58,7 @@ public class CarsMove : MonoBehaviour
         horizontalSpeed = 0;
         verticalSpeed = 0;
         //rb.velocity = new Vector2(0, 0);
-        Instantiate(_driver, transform.position, Quaternion.identity);
+        Instantiate(_driver, _driverSpawnPoint, Quaternion.identity);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

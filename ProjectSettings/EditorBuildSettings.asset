@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scripts/Scenes/Menu.unity
     guid: 20640262d16412d47b8ee31e1404cb17
   - enabled: 1
-    path: Assets/Scripts/Scenes/SampleScene.unity
+    path: Assets/Scripts/Scenes/Street.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scripts/Scenes/Parking.unity
+    guid: aac0bf03ff429db418ecec55c415b504
   m_configObjects: {}

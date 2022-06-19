@@ -1,5 +1,7 @@
 using UnityEngine;
 
+
+
 public class CarsMove : MonoBehaviour
 {
     private Rigidbody2D rb;
@@ -15,8 +17,33 @@ public class CarsMove : MonoBehaviour
     public bool _readyToTurn;
     bool _plSit = false;
     private Vector2 _driverSpawnPoint;
-
     public bool onPark = false;
+
+    public enum carsNumber : int
+    {
+        Car0,
+        Car1,
+        Car2,
+        Car3,
+        Car4,
+        Car5,
+        Car6,
+        Car7,
+        Car8,
+        Car9,
+        Car10,
+        Car11,
+        Car12,
+        Car13,
+        Car14,
+        Car15,
+        Car16,
+        Car17,
+        Car18,
+        car19
+    }
+
+    public carsNumber carNumber;
 
 
     void Start()

@@ -9742,6 +9742,7 @@ MonoBehaviour:
   _driver: {fileID: 5211828640518932506, guid: 6f97b0e63031789449b3cea8d5cca904, type: 3}
   _readyToTurn: 0
   onPark: 0
+  carNumber: 11
 --- !u!61 &-2226627440626782410
 BoxCollider2D:
   m_ObjectHideFlags: 0

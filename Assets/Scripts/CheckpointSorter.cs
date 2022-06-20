@@ -8,7 +8,7 @@ public class CheckpointSorter : MonoBehaviour
     public static bool _onTrigger = false;
     public GameObject _barrier1;
     public GameObject _barrier2;
-    bool barrierActive = false;
+    public static bool barrierActive = false;
     
 
     private void Start()

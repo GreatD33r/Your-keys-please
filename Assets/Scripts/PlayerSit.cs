@@ -6,7 +6,6 @@ public class PlayerSit : MonoBehaviour
 {
     public static Transform enteredObject;
     public static bool _playerNear = false;
-    public static GameObject _entObj;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -14,7 +13,7 @@ public class PlayerSit : MonoBehaviour
         {
            
             enteredObject = collision.transform;
-            _entObj = collision.gameObject;
+            CameraMng._currentCar = enteredObject;
         }
 
         else if (collision.CompareTag("Player"))
@@ -26,6 +25,12 @@ public class PlayerSit : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
+        if (collision.CompareTag("Car"))
+        {
+            enteredObject = null;
+            CameraMng._currentCar = enteredObject;
+
+        }
         if (collision.CompareTag("Player"))
         {
             _playerNear = false;

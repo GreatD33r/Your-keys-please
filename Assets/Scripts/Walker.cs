@@ -52,6 +52,7 @@ public class Walker : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             GoToPoint = true;
+            Hero._playerHadKey = true;
         }
 
         if (collision.CompareTag("Point"))

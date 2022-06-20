@@ -9,7 +9,7 @@ public class Hero : MonoBehaviour
     public Animator animator;
     private Vector2 direction;
     public float speed;
-    //public static bool _playerHasKey = false;
+    public static bool _playerHadKey = false;
 
     void Start()
     {

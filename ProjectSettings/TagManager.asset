@@ -8,6 +8,9 @@ TagManager:
   - veerCar
   - Right
   - StopPoint
+  - Point
+  - ParkPoint1
+  - ParkPoint2
   layers:
   - Default
   - TransparentFX

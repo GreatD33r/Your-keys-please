@@ -7,13 +7,14 @@ public class CameraMng : MonoBehaviour
 {
 
     private CinemachineVirtualCamera _vCam;
-    private Transform _currentCar;
+    public static Transform _currentCar;
     [SerializeField] GameObject _player;
     private bool _plNear;
     public static bool _plSit = false;
     [SerializeField] GameObject _stopLine;
     bool _busy;
-    private GameObject _col;
+    public static bool _plHadKey;
+    bool barrierActive;
 
     private void Start()
     {
@@ -22,23 +23,25 @@ public class CameraMng : MonoBehaviour
     }
     private void Update()
     {
+        barrierActive = CheckpointSorter.barrierActive;
+        _plHadKey = Hero._playerHadKey;
         _plNear = PlayerSit._playerNear;
         _busy = RoadBusy._isBusy;
-        _currentCar = PlayerSit.enteredObject;
+        //_currentCar = PlayerSit.enteredObject;
         
 
-        if (Input.GetKeyDown(KeyCode.E) & _plNear & _busy)
+        if (Input.GetKeyDown(KeyCode.E) & _plNear & _busy & _plHadKey & barrierActive)
         {
-            _col = PlayerSit._entObj;
             
             _player.SetActive(false);
             _vCam.Follow = _currentCar;
             _plSit = true;
         }
-        if (_plSit & Input.GetKeyDown(KeyCode.W))
+        if (_plSit & Input.GetKeyDown(KeyCode.W) )
         {
             _currentCar.gameObject.GetComponent<CarsMove>().verticalSpeed = 4;
             _stopLine.SetActive(false);
+            
         }
         
     }

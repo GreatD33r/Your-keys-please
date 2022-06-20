@@ -34,6 +34,7 @@ public class CarsMoveParking : MonoBehaviour
 			Hero._playerHadKey = false;
 			CheckpointSorter.barrierActive = false;
 			RoadBusy._isBusy = false;
+			CameraMng._plSit = false;
 		}
     }
 

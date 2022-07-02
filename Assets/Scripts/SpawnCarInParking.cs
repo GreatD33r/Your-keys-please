@@ -7,6 +7,7 @@ public class SpawnCarInParking : MonoBehaviour
 {
     public GameObject[] carType;
     private int CarNumber;
+    [SerializeField] StuffManager StuffManager;
 
     public CinemachineVirtualCamera _vCam;
     private Transform _currentCar;
@@ -15,11 +16,14 @@ public class SpawnCarInParking : MonoBehaviour
     {
         _currentCar = collision.transform;
         _vCam.Follow = _currentCar;
+        
     }
 
     private void Start()
     {
         CarNumber = SceneChangeToParking.CarNumber;
-        Instantiate(carType[CarNumber], transform.position, Quaternion.identity);
+        
+        var ddd = Instantiate(carType[CarNumber], transform.position, Quaternion.identity);
+        StuffManager.sss(ddd.GetComponent<CarsMoveParking>());
     }
 }

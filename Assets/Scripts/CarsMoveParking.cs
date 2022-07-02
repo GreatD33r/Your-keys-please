@@ -1,5 +1,6 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
+using System;
+
 
 public class CarsMoveParking : MonoBehaviour
 {
@@ -18,6 +19,7 @@ public class CarsMoveParking : MonoBehaviour
 
 	float velocityVsUp = 0;
 
+	public Action _wasParked;
 	public Rigidbody2D carRigidbody;
 
 	void Awake()
@@ -29,12 +31,15 @@ public class CarsMoveParking : MonoBehaviour
     {
         if(firstpoint & twicepoint)
         {
-			SceneManager.LoadScene("Street");
+			
 			PlayerSit._playerNear = false;
 			Hero._playerHadKey = false;
 			CheckpointSorter.barrierActive = false;
 			RoadBusy._isBusy = false;
 			CameraMng._plSit = false;
+			Debug.Log("ggg");
+			_wasParked?.Invoke();
+			
 		}
     }
 

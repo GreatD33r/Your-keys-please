@@ -30,10 +30,6 @@ public class CarsMoveParking : MonoBehaviour
     {
         if(firstpoint & twicepoint)
         {
-			PlayerSit._playerNear = false;
-			Hero._playerHadKey = false;
-			CheckpointSorter.barrierActive = false;
-			CameraMng._plSit = false;
 			wasParked?.Invoke();
 			Destroy(this.gameObject);
 		}

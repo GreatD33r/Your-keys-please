@@ -45,18 +45,27 @@ public class SceneChangeToParking : MonoBehaviour
         Cardrive.CanDrive = false;
     }
 
+    [SerializeField] CheckpointSorter CheckpointSorter;
+    [SerializeField] PlayerSit PlayerSit;
+
     public void ChangeToLevel()
     {
-        var parkingCameraBorder = CameraBorder.GetComponent<PolygonCollider2D>();
-        parkingCameraBorder.points = levelPoints;
         var parkingTransformBorder = CameraBorder.GetComponent<Transform>();
         parkingTransformBorder.position = new Vector3(-1, 0);
+        var parkingCameraBorder = CameraBorder.GetComponent<PolygonCollider2D>();
+        parkingCameraBorder.points = levelPoints;
         var Cardrive = CameraMng.GetComponent<CameraMng>();
         Cardrive.CanDrive = true;
         Player.SetActive(true);
         var playertransform = Player.GetComponent<Transform>();
         _vCam.Follow = playertransform;
         StopLine.SetActive(true);
+
+
+        PlayerSit._playerNear = false;
+        Hero._playerHadKey = false;
+        CheckpointSorter.barrierActive = false;
+        CameraMng._plSit = false;
     }
 
 

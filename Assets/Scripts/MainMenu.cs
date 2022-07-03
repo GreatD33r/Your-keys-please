@@ -28,4 +28,9 @@ public class MainMenu : MonoBehaviour
     {
         _optionMenu.SetActive(false);
     }
+
+    public void CloseLevelChooser()
+    {
+        _chooseLevel.SetActive(false);
+    }
 }

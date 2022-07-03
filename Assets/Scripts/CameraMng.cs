@@ -7,7 +7,7 @@ public class CameraMng : MonoBehaviour
 {
 
     private CinemachineVirtualCamera _vCam;
-    public static Transform _currentCar;
+    public Transform _currentCar;
     private bool _plNear;
     public static bool _plSit = false;
     [SerializeField] GameObject _player;

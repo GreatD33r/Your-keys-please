@@ -6,6 +6,7 @@ public class PlayerSit : MonoBehaviour
 {
     public static Transform enteredObject;
     public static bool _playerNear = false;
+    [SerializeField] private CameraMng cameraMng;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -13,7 +14,7 @@ public class PlayerSit : MonoBehaviour
         {
            
             enteredObject = collision.transform;
-            CameraMng._currentCar = enteredObject;
+            cameraMng.GetComponent<CameraMng>()._currentCar = enteredObject;
         }
 
         else if (collision.CompareTag("Player"))
@@ -28,7 +29,7 @@ public class PlayerSit : MonoBehaviour
         if (collision.CompareTag("Car"))
         {
             enteredObject = null;
-            CameraMng._currentCar = enteredObject;
+            cameraMng.GetComponent<CameraMng>()._currentCar = enteredObject;
 
         }
         if (collision.CompareTag("Player"))

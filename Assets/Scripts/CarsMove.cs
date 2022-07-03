@@ -15,6 +15,7 @@ public class CarsMove : MonoBehaviour
     [SerializeField] GameObject _secondParticles;
     [SerializeField] GameObject _driver;
     public bool _readyToTurn;
+    public bool RoadBus;
     bool _plSit = false;
     private Vector2 _driverSpawnPoint;
     public bool onPark = false;
@@ -57,7 +58,8 @@ public class CarsMove : MonoBehaviour
     {
         _driverSpawnPoint = new Vector2(transform.position.x + 2, transform.position.y);
         _plSit = CameraMng._plSit;
-        _readyToTurn = RoadBusy._isBusy;
+        _readyToTurn = CheckpointSorter._onTrigger;
+        RoadBus = RoadBusy._isBusy;
         rb.velocity = new Vector2(horizontalSpeed, verticalSpeed);
 
         /*if (_plSit & Input.GetKeyDown(KeyCode.W))
@@ -95,7 +97,7 @@ public class CarsMove : MonoBehaviour
 
             if (onPark == true)
             {
-                if (collision.CompareTag("Right") && _readyToTurn == false) 
+                if (collision.CompareTag("Right") && _readyToTurn && !RoadBus) 
                 {
                     rb.MoveRotation(0);
                     CarMove();

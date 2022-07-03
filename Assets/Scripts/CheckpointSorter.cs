@@ -20,15 +20,8 @@ public class CheckpointSorter : MonoBehaviour
     {
         if (!barrierActive & Input.GetKeyDown(KeyCode.G) & _onTrigger)
         {
-            _barrier1.SetActive(false);
-            _barrier2.SetActive(true);
-            barrierActive = true;
-        }
-        else if (barrierActive & Input.GetKeyDown(KeyCode.G) & _onTrigger)
-        {
-            _barrier1.SetActive(true);
-            _barrier2.SetActive(false);
-            barrierActive = false;
+            BarrierOpen();
+            Invoke("BarrierClose", 10);
         }
     }
     private void OnTriggerEnter2D(Collider2D collision)
@@ -37,8 +30,6 @@ public class CheckpointSorter : MonoBehaviour
         {
             sr.sortingOrder = 1;
             _onTrigger = true;
-
-            
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
@@ -49,5 +40,18 @@ public class CheckpointSorter : MonoBehaviour
             _onTrigger = false;
         }
         
+    }
+    private void BarrierOpen()
+    {
+        _barrier1.SetActive(false);
+        _barrier2.SetActive(true);
+        barrierActive = true;
+    }
+
+    private void BarrierClose()
+    {
+        _barrier1.SetActive(true);
+        _barrier2.SetActive(false);
+        barrierActive = false;
     }
 }

@@ -6,24 +6,27 @@ using Cinemachine;
 public class SpawnCarInParking : MonoBehaviour
 {
     public GameObject[] carType;
-    private int CarNumber;
-    [SerializeField] StuffManager StuffManager;
+    [SerializeField] SceneChangeToParking sceneChangeToParking;
 
     public CinemachineVirtualCamera _vCam;
     private Transform _currentCar;
+
+    private void Start()
+    {
+        sceneChangeToParking.goToPark += SpawnCar;
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         _currentCar = collision.transform;
         _vCam.Follow = _currentCar;
-        
+
     }
 
-    private void Start()
+    private void SpawnCar()
     {
-        CarNumber = SceneChangeToParking.CarNumber;
-        
-        var ddd = Instantiate(carType[CarNumber], transform.position, Quaternion.identity);
-        StuffManager.sss(ddd.GetComponent<CarsMoveParking>());
+        var CarNumber = sceneChangeToParking.GetComponent<SceneChangeToParking>().CarNumber;
+        Debug.Log(CarNumber);
+        Instantiate(carType[CarNumber], transform.position, Quaternion.identity);
     }
 }

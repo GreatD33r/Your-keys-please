@@ -18,9 +18,8 @@ public class CarsMoveParking : MonoBehaviour
 	float rotationAngle = 0;
 
 	float velocityVsUp = 0;
-
-	public Action _wasParked;
 	public Rigidbody2D carRigidbody;
+	public static Action wasParked;
 
 	void Awake()
 	{
@@ -31,15 +30,12 @@ public class CarsMoveParking : MonoBehaviour
     {
         if(firstpoint & twicepoint)
         {
-			
 			PlayerSit._playerNear = false;
 			Hero._playerHadKey = false;
 			CheckpointSorter.barrierActive = false;
-			RoadBusy._isBusy = false;
 			CameraMng._plSit = false;
-			Debug.Log("ggg");
-			_wasParked?.Invoke();
-			
+			wasParked?.Invoke();
+			Destroy(this.gameObject);
 		}
     }
 

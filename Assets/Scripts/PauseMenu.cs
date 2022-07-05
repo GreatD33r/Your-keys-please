@@ -68,4 +68,9 @@ public class PauseMenu : MonoBehaviour
         Application.Quit();
     }
 
+    public void ClearSave()
+    {
+        PlayerPrefs.DeleteKey("LevelComplete");
+    }
+
 }

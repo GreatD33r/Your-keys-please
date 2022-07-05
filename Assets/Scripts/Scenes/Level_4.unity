@@ -12802,7 +12802,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 0/1
+  m_Text: 0/4
 --- !u!222 &199230082
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -33074,7 +33074,7 @@ MonoBehaviour:
   _money: 0
   _carsWereParked: 0
   carScore: {fileID: 199230081}
-  levelNumber: 1
+  levelNumber: 0
 --- !u!4 &2142505028
 Transform:
   m_ObjectHideFlags: 0

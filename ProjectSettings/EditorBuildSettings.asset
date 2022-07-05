@@ -12,6 +12,36 @@ EditorBuildSettings:
     path: Assets/Scripts/Scenes/Level_1.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
-    path: Assets/Scripts/Scenes/Parking.unity
-    guid: aac0bf03ff429db418ecec55c415b504
+    path: Assets/Scripts/Scenes/Level_2.unity
+    guid: 9ef40795fea3e1d4d835d26537834ed3
+  - enabled: 1
+    path: Assets/Scripts/Scenes/Level_3.unity
+    guid: 6cf7331aa16709f4f98862e110048215
+  - enabled: 1
+    path: Assets/Scripts/Scenes/Level_4.unity
+    guid: d461e49aa945edb4ba8a6c04e6f73bb4
+  - enabled: 1
+    path: Assets/Scripts/Scenes/Level_5.unity
+    guid: 900674b423dbe5a43a79e92ab9ad322e
+  - enabled: 1
+    path: Assets/Scripts/Scenes/Level_6.unity
+    guid: 7f71b4ff5427abb4fad8e7ee0ffa00d2
+  - enabled: 1
+    path: Assets/Scripts/Scenes/Level_7.unity
+    guid: f4d9923ed6f5a1e429fcbfd7bb61198b
+  - enabled: 1
+    path: Assets/Scripts/Scenes/Level_8.unity
+    guid: 84c79f010a9429749a7049cc7848703c
+  - enabled: 1
+    path: Assets/Scripts/Scenes/Level_9.unity
+    guid: cab30da32b86e6945b30c462b5b3e049
+  - enabled: 1
+    path: Assets/Scripts/Scenes/Level_10.unity
+    guid: c9a5375243522cb49a47434afbc2efaa
+  - enabled: 1
+    path: Assets/Scripts/Scenes/Level_11.unity
+    guid: 5e2360777184e3f48b8b9314e2329ea1
+  - enabled: 1
+    path: Assets/Scripts/Scenes/Level_12.unity
+    guid: 6bf3a45dd014d4f4c91cea43ff744455
   m_configObjects: {}

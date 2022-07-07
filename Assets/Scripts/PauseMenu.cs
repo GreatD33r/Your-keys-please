@@ -70,7 +70,7 @@ public class PauseMenu : MonoBehaviour
 
     public void ClearSave()
     {
-        PlayerPrefs.DeleteKey("LevelComplete");
+        PlayerPrefs.DeleteAll();
     }
 
 }

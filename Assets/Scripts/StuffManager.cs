@@ -31,11 +31,6 @@ public class StuffManager : MonoBehaviour
 
     public LevelNumber levelNumber;
 
-    private List<int> timeToChangeLevel = new List<int>()
-    {
-        1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12
-    };
-
     DateTime date1 = new DateTime();
 
     private void Start()
@@ -44,45 +39,34 @@ public class StuffManager : MonoBehaviour
         date1 = date1.AddHours(9);
         clock.text = date1.ToString("HH:mm");
     }
-    
+
+    private void Update()
+    {
+        if (date1.Hour == 18)
+        {
+            LevelComplete = (int)levelNumber;
+            Debug.Log(LevelComplete);
+            PlayerPrefs.SetInt("LevelComplete", LevelComplete);
+            SceneManager.LoadScene($"Level_{LevelComplete + 1}");
+        }
+    }
+
     private void FixedUpdate()
     {
         date1 = date1.AddSeconds(1);
         clock.text = date1.ToString("HH:mm");
-        for (int i = 1; i < timeToChangeLevel.Count; i++)
-        {
-            
-                if (date1.Hour == 18)
-                {
-                    LevelComplete = i;
-                    PlayerPrefs.SetInt("LevelComplete", LevelComplete);
-                    SceneManager.LoadScene($"Level_{i + 1}");
-                }
-            
-        }
+        
     }
 
     void AddCarScore()
     {
         _carsWereParked++;
         carScore.text = _carsWereParked.ToString();
-        Debug.Log(date1.Hour);
-        
-
-        /*for (int i = 1; i < carToChangeLevel.Count; i++)
+        if (_carsWereParked == 4)
         {
-            if ((int)levelNumber == i)
-            {
-                carScore.text = _carsWereParked.ToString();
-                if (_carsWereParked == carToChangeLevel[i - 1])
-                {
-                    LevelComplete = i;
-                    PlayerPrefs.SetInt("LevelComplete", LevelComplete);
-                    SceneManager.LoadScene($"Level_{i + 1}");
-                }
-            }
+            
+        }
 
-        }*/
     }
 }
     

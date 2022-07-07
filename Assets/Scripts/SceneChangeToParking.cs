@@ -13,6 +13,11 @@ public class SceneChangeToParking : MonoBehaviour
     [SerializeField] private GameObject Player;
     [SerializeField] private CinemachineVirtualCamera _vCam;
     [SerializeField] private GameObject StopLine;
+    private PolygonCollider2D parkingCameraBorder;
+    private Transform parkingTransformBorder;
+    private CameraMng Cardrive;
+    private Transform playertransform;
+
 
     public Action goToPark;
 
@@ -37,11 +42,11 @@ public class SceneChangeToParking : MonoBehaviour
     void ChangeToPark()
     {
        
-        var parkingCameraBorder = CameraBorder.GetComponent<PolygonCollider2D>();
+        parkingCameraBorder = CameraBorder.GetComponent<PolygonCollider2D>();
         parkingCameraBorder.points = parkPoints;
-        var parkingTransformBorder = CameraBorder.GetComponent<Transform>();
+        parkingTransformBorder = CameraBorder.GetComponent<Transform>();
         parkingTransformBorder.position = new Vector2(75, 2);
-        var Cardrive = CameraMng.GetComponent<CameraMng>();
+        Cardrive = CameraMng.GetComponent<CameraMng>();
         Cardrive.CanDrive = false;
     }
 
@@ -50,14 +55,14 @@ public class SceneChangeToParking : MonoBehaviour
 
     public void ChangeToLevel()
     {
-        var parkingTransformBorder = CameraBorder.GetComponent<Transform>();
+        parkingTransformBorder = CameraBorder.GetComponent<Transform>();
         parkingTransformBorder.position = new Vector3(-1, 0);
-        var parkingCameraBorder = CameraBorder.GetComponent<PolygonCollider2D>();
+        parkingCameraBorder = CameraBorder.GetComponent<PolygonCollider2D>();
         parkingCameraBorder.points = levelPoints;
-        var Cardrive = CameraMng.GetComponent<CameraMng>();
+        Cardrive = CameraMng.GetComponent<CameraMng>();
         Cardrive.CanDrive = true;
         Player.SetActive(true);
-        var playertransform = Player.GetComponent<Transform>();
+        playertransform = Player.GetComponent<Transform>();
         _vCam.Follow = playertransform;
         StopLine.SetActive(true);
 

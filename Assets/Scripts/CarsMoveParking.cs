@@ -28,10 +28,14 @@ public class CarsMoveParking : MonoBehaviour
 
     private void Update()
     {
+		
         if(firstpoint & twicepoint)
         {
 			wasParked?.Invoke();
-			Destroy(this.gameObject);
+			firstpoint = false;
+			twicepoint = false;
+			var CarInput = gameObject.GetComponent<CarInputHandler>();
+			CarInput.enabled = false;
 		}
     }
 

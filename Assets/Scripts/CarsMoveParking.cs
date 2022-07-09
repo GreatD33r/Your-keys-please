@@ -20,24 +20,28 @@ public class CarsMoveParking : MonoBehaviour
 	float velocityVsUp = 0;
 	public Rigidbody2D carRigidbody;
 	public static Action wasParked;
+	private Transform carTransform;
 
 	void Awake()
 	{
 		carRigidbody = GetComponent<Rigidbody2D>();
+		carTransform = GetComponent<Transform>();
 	}
 
     private void Update()
     {
-		
-        if(firstpoint & twicepoint)
+
+		if (firstpoint && twicepoint && Input.GetKeyDown(KeyCode.F))
         {
 			wasParked?.Invoke();
 			firstpoint = false;
 			twicepoint = false;
 			var CarInput = gameObject.GetComponent<CarInputHandler>();
 			CarInput.enabled = false;
+
 		}
-    }
+		
+	}
 
 
     void FixedUpdate()
@@ -131,21 +135,31 @@ public class CarsMoveParking : MonoBehaviour
         {
 			firstpoint = true;
         }
+
 		if (collision.CompareTag("ParkPoint2"))
         {
 			twicepoint = true;
         }
-    }
-
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-		if (collision.CompareTag("ParkPoint1"))
-		{
-			firstpoint = false;
-		}
-		if (collision.CompareTag("ParkPoint2"))
-		{
-			twicepoint = false;
-		}
 	}
+
+    /*private void OnTriggerExit2D(Collider2D collision)
+    {
+		if (collision.CompareTag("VerticalParkPoint1"))
+		{
+			verticalfirstpoint = false;
+		}
+		else if (collision.CompareTag("HorizontalParkPoint1"))
+		{
+			horizontalfirstpoint = false;
+		}
+
+		if (collision.CompareTag("VerticalParkPoint2"))
+		{
+			verticaltwicepoint = false;
+		}
+		else if (collision.CompareTag("HorizontalParkPoint2"))
+		{
+			horizontaltwicepoint = false;
+		}
+	}*/
 }

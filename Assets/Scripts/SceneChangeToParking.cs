@@ -21,33 +21,45 @@ public class SceneChangeToParking : MonoBehaviour
 
     public Action goToPark;
 
+    private void OnEnable()
+    {
+        CarsMoveParking.wasParked += ChangeToLevel;
+    }
+
+    private void OnDisable()
+    {
+        CarsMoveParking.wasParked -= ChangeToLevel;
+    }
+    
+
 
     private void Start()
     {
-        CarsMoveParking.wasParked += ChangeToLevel;
+        
+        parkingCameraBorder = CameraBorder.GetComponent<PolygonCollider2D>();
+        parkingTransformBorder = CameraBorder.GetComponent<Transform>();
+        Cardrive = CameraMng.GetComponent<CameraMng>();
+        playertransform = Player.GetComponent<Transform>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Car"))
         {
+            
             CarNumber = (int)collision.GetComponent<CarsMove>().carNumber;
             goToPark?.Invoke();
             ChangeToPark();
-            Debug.Log(CarNumber);
             Destroy(collision.gameObject);
         }
     }
 
     void ChangeToPark()
     {
-       
-        parkingCameraBorder = CameraBorder.GetComponent<PolygonCollider2D>();
         parkingCameraBorder.points = parkPoints;
-        parkingTransformBorder = CameraBorder.GetComponent<Transform>();
         parkingTransformBorder.position = new Vector2(75, 2);
-        Cardrive = CameraMng.GetComponent<CameraMng>();
         Cardrive.CanDrive = false;
+
     }
 
     [SerializeField] CheckpointSorter CheckpointSorter;
@@ -55,17 +67,13 @@ public class SceneChangeToParking : MonoBehaviour
 
     public void ChangeToLevel()
     {
-        parkingTransformBorder = CameraBorder.GetComponent<Transform>();
+        
         parkingTransformBorder.position = new Vector3(-1, 0);
-        parkingCameraBorder = CameraBorder.GetComponent<PolygonCollider2D>();
         parkingCameraBorder.points = levelPoints;
-        Cardrive = CameraMng.GetComponent<CameraMng>();
         Cardrive.CanDrive = true;
         Player.SetActive(true);
-        playertransform = Player.GetComponent<Transform>();
         _vCam.Follow = playertransform;
         StopLine.SetActive(true);
-
 
         PlayerSit._playerNear = false;
         Hero._playerHadKey = false;

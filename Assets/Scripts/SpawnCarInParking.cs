@@ -26,7 +26,6 @@ public class SpawnCarInParking : MonoBehaviour
     private void SpawnCar()
     {
         var CarNumber = sceneChangeToParking.GetComponent<SceneChangeToParking>().CarNumber;
-        Debug.Log(CarNumber);
         Instantiate(carType[CarNumber], transform.position, Quaternion.identity);
     }
 }
